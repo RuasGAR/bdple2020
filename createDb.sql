@@ -1,0 +1,100 @@
+--CREATE DATABASE TRABALHO_BD
+--
+--
+--USE Trabalho_BD;
+--
+--DROP TABLE IF EXISTS NOTA_FISCAL;
+--DROP TABLE IF EXISTS ENDERECO;
+--DROP TABLE IF EXISTS USUARIO;
+--DROP TABLE IF EXISTS PESSOA_FISICA;
+--DROP TABLE IF EXISTS PESSOA_JURIDICA;
+--DROP TABLE IF EXISTS DESTINATARIO_REMETENTE;
+--DROP TABLE IF EXISTS TRANSPORTADOR;
+--DROP TABLE IF EXISTS PRODUTO;
+--DROP TABLE IF EXISTS TRANSPORTE;
+
+
+
+CREATE TABLE NOTA_FISCAL(
+    Cd_Nota_Fiscal INTEGER PRIMARY KEY,
+    Ds_Natureza_Operacao VARCHAR(200),
+    Nu_CFOP CHAR(4),
+    Nu_IEST CHAR(14),
+    Nu_Inscricao_Estadual CHAR(9),
+    Ic_Saida_Entrada BIT,
+    Dt_Data_de_Emissao TIMESTAMP,
+    Ds_Dados_Adicionais VARCHAR(max)
+);
+
+
+CREATE TABLE ENDERECO(
+    Cd_Endereco INTEGER PRIMARY KEY,
+    Nu_Numero INTEGER,
+    Nu_Complemento CHAR(100),
+    Nu_CEP CHAR(8) 
+);
+
+
+CREATE TABLE USUARIO(
+    Cd_Usuario INTEGER PRIMARY KEY
+);
+
+
+CREATE TABLE PESSOA_FISICA(
+    Cd_Usuario INTEGER PRIMARY KEY,
+    Nu_CPF CHAR(11),
+    Nm_Nome CHAR(255)
+);
+
+
+CREATE TABLE PESSOA_JURIDICA(
+    Cd_Usuario INTEGER PRIMARY KEY,
+    Nu_CNPJ CHAR(15),
+    Nm_Razao_Social CHAR(255)
+);
+
+
+CREATE TABLE DESTINATARIO_REMETENTE(
+    Cd_Usuario INTEGER PRIMARY KEY,
+    Nu_Fone_FAX CHAR(100),
+    Nu_Inscricao_Estadual CHAR(9)
+);
+
+
+CREATE TABLE TRANSPORTADOR (
+    Cd_Usuario INTEGER PRIMARY KEY,
+    Ds_Marca VARCHAR(30),
+    Cd_Placa CHAR(7),
+    Ds_Especie VARCHAR(30),
+    Cd_Numero INTEGER
+);
+
+
+CREATE TABLE PRODUTO
+(
+	Id_Produto int NOT NULL,
+	Nm_Droduto varchar(100),
+	DS_Descricao varchar(280),
+	Nm_Unid int NOT NULL,
+	Nm_valor int NOT NULL,
+	PRIMARY KEY (id_produto)
+);
+
+
+CREATE TABLE TRANSPORTE(
+    Cd_Nota_Fiscal INTEGER PRIMARY KEY,
+    Dt_DATA_SAIDA_ENTRADA TIMESTAMP,
+    Nm_Frete_Conta INTEGER,
+    Cd_Trasportador INTEGER
+);
+
+
+CREATE TABLE NOTA_PRODUTO (
+    Cd_Nota_Fiscal INTEGER NOT NULL,
+    Cd_Produto INTEGER NOT NULL,
+    Cd_Sit_Trib CHAR(2),
+    PC_ICMS INTEGER,
+    Ps_Liquido INTEGER,
+    Ps_Bruto INTEGER,
+    PRIMARY KEY (Cd_Nota_Fiscal, Cd_Produto)
+);

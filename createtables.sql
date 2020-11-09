@@ -211,10 +211,11 @@ CREATE TABLE [NOTA_FISCAL]
  [Dt_Data_de_Emissao]    timestamp NULL ,
  [Ds_Dados_Adicionais]   varchar(max) NULL ,
  [Cd_Usuario]            integer NOT NULL ,
+ [Cd_Remetente] integer NOT NULL ,
 
 
  CONSTRAINT [PK_NOTA_FISCAL] PRIMARY KEY NONCLUSTERED ([Cd_Nota_Fiscal] ASC),
- CONSTRAINT [FK_101] FOREIGN KEY ([Cd_Usuario])  REFERENCES [DESTINATARIO_REMETENTE]([Cd_Usuario]),
+ CONSTRAINT [FK_101] FOREIGN KEY ([Cd_Remetente])  REFERENCES [DESTINATARIO_REMETENTE]([Cd_Usuario]),
  CONSTRAINT [FK_85] FOREIGN KEY ([Cd_Usuario])  REFERENCES [USUARIO]([Cd_Usuario])
 );
 GO

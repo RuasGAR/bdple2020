@@ -1,0 +1,4 @@
+use Trabalho_BD;
+
+INSERT INTO NOTA_FISCAL
+VALUES (10,'NATUREZA','000','00','00000',0,'2007-05-08 12:35:29.123','Estamos aqui',10,1);

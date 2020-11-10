@@ -23,6 +23,9 @@ CREATE TABLE NOTA_FISCAL(
     Nu_Inscricao_Estadual CHAR(9),
     Ic_Saida_Entrada BIT,
     Dt_Data_de_Emissao TIMESTAMP,
+    Dt_Data_de_Pagamento DATETIME,
+    Nu_Valor_Total INTEGER,
+    Ds_Xml XML,
     Ds_Dados_Adicionais VARCHAR(max)
 );
 

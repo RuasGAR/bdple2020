@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Customers>
+  <Customer>
+    <Document>000 000 000</Document>
+    <Name>Mary Angel</Name>
+    <Address>Your City, YC 1212</Address>
+    <Profession>Systems Analyst</Profession>
+  </Customer>
+  <Customer>
+    <Document>000 000 001</Document>
+    <Name>John Lenon</Name>
+    <Address>Your City, YC 1212</Address>
+    <Profession>Driver</Profession>
+  </Customer>
+  <Customer>
+    <Document>000 000 002</Document>
+    <Name>Alice Freeman</Name>
+    <Address>Your City, YC 1212</Address>
+    <Profession>Architect</Profession>
+  </Customer>
+  <Customer>
+    <Document>000 000 003</Document>
+    <Name>George Sands</Name>
+    <Address>Your City, YC 1212</Address>
+    <Profession>Doctor</Profession>
+  </Customer>
+  <Customer>
+    <Document>000 000 004</Document>
+    <Name>Mark Oliver</Name>
+    <Address>Your City, YC 1212</Address>
+    <Profession>Writer</Profession>
+  </Customer>
+</Customers>

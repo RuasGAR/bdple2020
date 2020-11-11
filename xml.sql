@@ -4,14 +4,16 @@
 
 -- Inserção
 
-UPDATE NOTA_FISCAL
-SET Ds_XML = (
-    SELECT * FROM OPENROWSET(  
-        BULK 'D:/home/ruas/Área de Trabalho/Faculdade/Banco de Dados/trabalhoBD/test_xml.xml',  
-        SINGLE_BLOB) AS x
-    ) 
-WHERE Cd_Nota_Fiscal = 1;  
+ALTER TABLE NOTA_FISCAL ADD Ds_XML XML;
+
+INSERT INTO NOTA_FISCAL
+VALUES(6,'NATUREZA','000','00','00000',0,'2007-05-08 12:35:29.123','Estamos aqui',1,1,
+    (
+        SELECT * FROM OPENROWSET(  
+            BULK 'D:/home/ruas/Área de Trabalho/Faculdade/Banco de Dados/trabalhoBD/test_xml.xml',  
+            SINGLE_BLOB) AS x
+    )) 
 
 -- Seleção
-SELECT Ds_XML FROM NOTA_FISCAL WHERE Cd_Nota_Fiscal = 1;
+SELECT Ds_XML FROM NOTA_FISCAL WHERE Cd_Nota_Fiscal = 6; 
 

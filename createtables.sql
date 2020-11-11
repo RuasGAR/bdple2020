@@ -1,4 +1,3 @@
-USE TRABALHO_BD;
 
 -- ****************** SqlDBM: Microsoft SQL Server ******************
 -- ******************************************************************
@@ -209,9 +208,6 @@ CREATE TABLE [NOTA_FISCAL]
  [Nu_Inscricao_Estadual] char(9) NULL ,
  [Ic_Saida_Entrada]      bit NULL ,
  [Dt_Data_de_Emissao]    datetime NULL ,
- [Dt_Data_de_Pagamento]  datetime,NULL ,
- [Nu_Valor_Total]        integer,
- [Ds_Xml]                XML,
  [Ds_Dados_Adicionais]   varchar(max) NULL ,
  [Cd_Usuario]            integer NOT NULL ,
  [Cd_Remetente] integer NOT NULL ,

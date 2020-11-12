@@ -19,13 +19,12 @@ DROP VIEW IF EXISTS CLIENTE_DUPLICATA_VENCIDA;
 CREATE TABLE [PRODUTO]
 (
  [Cd_Produto]   integer NOT NULL ,
- [Nm_Produto]   varchar(100) NULL ,
  [DS_Descricao] varchar(280) NULL ,
- [Nm_Unid]      integer NOT NULL ,
+ [Nm_Unid]      CHAR(100) NOT NULL ,
  [Nm_Valor]     integer NOT NULL ,
 
 
- CONSTRAINT [Cd_Produto] PRIMARY KEY NONCLUSTERED ([Cd_Produto] ASC)
+ CONSTRAINT [Cd_Produto] PRIMARY KEY ([Cd_Produto] ASC)
 );
 GO
 

@@ -14,17 +14,18 @@ DROP TABLE IF EXISTS NOTA_FISCAL;--
 DROP TABLE IF EXISTS DESTINATARIO_REMETENTE;--
 DROP TABLE IF EXISTS USUARIO; --
 DROP TABLE IF EXISTS ENDERECO; --
+DROP VIEW IF EXISTS CLIENTE_DUPLICATA_VENCIDA;
 
 CREATE TABLE [PRODUTO]
 (
- [Id_Produto]   integer NOT NULL ,
- [Nm_Droduto]   varchar(100) NULL ,
+ [Cd_Produto]   integer NOT NULL ,
+ [Nm_Produto]   varchar(100) NULL ,
  [DS_Descricao] varchar(280) NULL ,
  [Nm_Unid]      integer NOT NULL ,
- [Nm_valor]     integer NOT NULL ,
+ [Nm_Valor]     integer NOT NULL ,
 
 
- CONSTRAINT [id_produto] PRIMARY KEY NONCLUSTERED ([Id_Produto] ASC)
+ CONSTRAINT [Cd_Produto] PRIMARY KEY NONCLUSTERED ([Cd_Produto] ASC)
 );
 GO
 
@@ -280,16 +281,16 @@ GO
 CREATE TABLE [NOTA_PRODUTO]
 (
  [Cd_Nota_Fiscal] integer NOT NULL ,
- [Id_Produto]     integer NOT NULL ,
+ [Cd_Produto]     integer NOT NULL ,
  [Cd_Sit_Trib]    char(2) NULL ,
  [PC_ICMS]        integer NULL ,
  [Ps_Liquido]     integer NULL ,
  [Ps_Bruto]       integer NULL ,
 
 
- CONSTRAINT [Cd_Nota_Fiscal] PRIMARY KEY NONCLUSTERED ([Cd_Nota_Fiscal] ASC, [Id_Produto] ASC),
+ CONSTRAINT [Cd_Nota_Fiscal] PRIMARY KEY NONCLUSTERED ([Cd_Nota_Fiscal] ASC, [Cd_Produto] ASC),
  CONSTRAINT [FK_91] FOREIGN KEY ([Cd_Nota_Fiscal])  REFERENCES [NOTA_FISCAL]([Cd_Nota_Fiscal]),
- CONSTRAINT [FK_95] FOREIGN KEY ([Id_Produto])  REFERENCES [PRODUTO]([Id_Produto])
+ CONSTRAINT [FK_95] FOREIGN KEY ([Cd_Produto])  REFERENCES [PRODUTO]([Cd_Produto])
 );
 GO
 
@@ -303,7 +304,7 @@ GO
 
 CREATE NONCLUSTERED INDEX [fkIdx_95] ON [NOTA_PRODUTO] 
  (
-  [Id_Produto] ASC
+  [Cd_Produto] ASC
  )
 
 GO
